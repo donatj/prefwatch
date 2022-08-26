@@ -2,7 +2,9 @@
 
 [![CI](https://github.com/donatj/prefwatch/actions/workflows/ci.yml/badge.svg)](https://github.com/donatj/prefwatch/actions/workflows/ci.yml)
 
-prefwatch monitors macOS preference files for changes. It watches `~/Library/Preferences` for plist file modifications. When a preference file changes, it prints a unified diff of the changed values to the console.
+Watch system perference plists for changes and report
+
+`prefwatch` monitors macOS preference files for changes. It watches `~/Library/Preferences` for plist file modifications. When a preference file changes, it prints a unified diff of the changed values to the console.
 
 ## Installation
 
