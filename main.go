@@ -76,6 +76,8 @@ func main() {
 							aString,
 							edits,
 						))
+
+						fileData[event.Name] = newQ
 					}
 				}
 			case err, ok := <-watcher.Errors:
