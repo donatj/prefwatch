@@ -107,7 +107,7 @@ func readPlist(file string) ([]plistItem, error) {
 	}
 
 	d := plist.NewDecoder(f)
-	var foo map[string]interface{}
+	var foo map[string]any
 	d.Decode(&foo)
 
 	q := []plistItem{}
@@ -140,19 +140,19 @@ func plistString(q []plistItem) string {
 	return b.String()
 }
 
-func iterateMaps[K int | string](items map[string]interface{}, key K, p *[]plistItem) {
+func iterateMaps[K int | string](items map[string]any, key K, p *[]plistItem) {
 	for k, i := range items {
 		handleContent(i, fmt.Sprintf("%s.'%s'", fmt.Sprint(key), k), p)
 	}
 }
 
-func iterateSlices[K int | string](items []interface{}, key K, p *[]plistItem) {
+func iterateSlices[K int | string](items []any, key K, p *[]plistItem) {
 	for k, i := range items {
 		handleContent(i, fmt.Sprintf("%s.'%d'", fmt.Sprint(key), k), p)
 	}
 }
 
-func handleContent(i interface{}, key string, p *[]plistItem) {
+func handleContent(i any, key string, p *[]plistItem) {
 	switch v := i.(type) {
 	case string:
 		*p = append(*p, plistItem{key, fmt.Sprintf("%T", v), fmt.Sprintf("%#v", v)})
@@ -170,9 +170,9 @@ func handleContent(i interface{}, key string, p *[]plistItem) {
 		*p = append(*p, plistItem{key, fmt.Sprintf("%T", v), fmt.Sprintf("%#v", v)})
 	case time.Time:
 		*p = append(*p, plistItem{key, fmt.Sprintf("%T", v), fmt.Sprintf("%#v", v)})
-	case map[string]interface{}:
+	case map[string]any:
 		iterateMaps(v, key, p)
-	case []interface{}:
+	case []any:
 		iterateSlices(v, key, p)
 	default:
 		fmt.Println(key)
