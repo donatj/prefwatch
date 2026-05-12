@@ -3,7 +3,7 @@ module github.com/donatj/prefwatch
 go 1.26
 
 require (
-	github.com/fsnotify/fsnotify v1.10.0
+	github.com/fsnotify/fsnotify v1.10.1
 	github.com/hexops/gotextdiff v1.0.3
 	howett.net/plist v1.0.1
 )
