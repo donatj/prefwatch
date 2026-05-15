@@ -18,7 +18,7 @@ jobs:
           go-version-file: 'go.mod'
 
       - name: Build
-        run: go build ./...
+        run: make clean build
 
       - name: Test
-        run: go test ./...
+        run: make test
