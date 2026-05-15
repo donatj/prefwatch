@@ -1,5 +1,6 @@
 # prefwatch
 
+[![Go Report Card](https://goreportcard.com/badge/github.com/donatj/prefwatch)](https://goreportcard.com/report/github.com/donatj/prefwatch)
 [![CI](https://github.com/donatj/prefwatch/actions/workflows/ci.yml/badge.svg)](https://github.com/donatj/prefwatch/actions/workflows/ci.yml)
 
 Watch system perference plists for changes and report diffs.
